@@ -1,4 +1,7 @@
+aws.json
+npm-debug.log
 node_modules/
 dist/
+deploy/
 .sass-cache/
 app/bower_components/

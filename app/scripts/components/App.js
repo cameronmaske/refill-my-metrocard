@@ -1,6 +1,7 @@
 import React from 'react';
 import FareTable from './FareTable';
 import Options from './Options';
+import HelpText from './HelpText';
 
 
 function roundToFiveCents(value) {
@@ -37,7 +38,7 @@ function optimalFare(ride, balance, fare) {
 }
 
 function recalculateFares(balance, fare) {
-    var rides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    var rides = Array.from(Array(100).keys());
     var options = [];
     for (let ride of rides) {
         options.push(
@@ -47,6 +48,16 @@ function recalculateFares(balance, fare) {
     return options;
 }
 
+
+class NavBar extends React.Component {
+    render() {
+        return (
+            <nav className="navbar">
+                <span className="navbar-brand">Metrocard Calculator</span>
+            </nav>
+        )
+    }
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -71,8 +82,12 @@ class App extends React.Component {
         )
         return (
             <div>
-                <Options onChange={this.optionsChange.bind(this)} fare={this.state.fare} balance={this.state.balance}></Options>
-                <FareTable fares={fares}></FareTable>
+                <NavBar/>
+                <div className="container">
+                    <HelpText/>
+                    <Options onChange={this.optionsChange.bind(this)} fare={this.state.fare} balance={this.state.balance}></Options>
+                    <FareTable fares={fares}></FareTable>
+                </div>
             </div>
         )
     }

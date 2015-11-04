@@ -1,7 +1,101 @@
-@charset "UTF-8";
+// Enable flexbox.
+// $enable-flex: true;
 
-// import materialize
-@import "materialize";
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
-// Custom style
-@import "style.scss";
+// // Reset and dependencies
+@import "bootstrap/normalize";
+
+// Core CSS
+@import "bootstrap/reboot";
+@import "bootstrap/forms";
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+
+
+.container {
+  @include make-container();
+}
+
+.row {
+  @include make-row(20px);
+}
+
+.ride {
+  @include make-col(20px);
+  @include make-col-span(2);
+}
+
+.you-pay {
+  @include make-col(20px);
+  @include make-col-span(3.5);
+}
+
+.bonus {
+  @include make-col(20px);
+  @include make-col-span(3);
+}
+
+.remainder {
+  @include make-col(20px);
+  @include make-col-span(3.5);
+}
+
+.help-text {
+  @include make-col(0);
+  @include make-col-span(12);
+}
+
+.fare-header {
+  @include make-row(40px);
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid darken(#46CDCF, 10%);
+  border-top: 2px solid darken(#46CDCF, 10%);
+  color: #fff;
+  background: #46CDCF;
+  text-align:center;
+}
+
+.fare-item-label {
+  @include make-row(40px);
+  text-align: center;
+  text-transform: uppercase;
+  background: #46CDCF;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.fare-item {
+  @include make-row(40px);
+  padding: 10px;
+  &.best {
+    border-top: 1px solid #46CDCF;
+    border-bottom: 2px solid #46CDCF;
+    background: lighten(#3D84A8, 45%);
+    font-weight: 400;
+  }
+  border-bottom: 1px solid #B0B0C8;
+  font-weight: 300;
+  text-align:center;
+}
+
+
+body {
+  color: #222831;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+.options {
+  @include make-col(20px);
+  @include make-col-span(12);
+  padding-top: 10px;
+}

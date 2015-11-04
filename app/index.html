@@ -2,39 +2,863 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>Metro Card Recharge</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-        <link rel="stylesheet" href="styles/main.css">
-    </head>
-    <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input placeholder="0.00" id="amount" type="number" class="validate">
-                    <label for="amount">Current Balance</label>
+<head>
+    <meta charset="utf-8">
+    <title>Metro Card Recharge</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div data-reactid=".0">
+        <nav class="navbar" data-reactid=".0.0">
+            <span class="navbar-brand" data-reactid=".0.0.0">Metrocard Calculator</span></nav>
+        <div class="container" data-reactid=".0.1">
+            <div class="help-text" data-reactid=".0.1.0">
+                <noscript>
+                <p> Hey! You don't have Javascript enabled. You can still look up the ideal amount, but you won't be able to tweak the options below. </p>
+                </noscript>
+                <p data-reactid=".0.1.0.0"> Never be a nickle short again. Calculate the exact amount to refill your MetroCard and have no left over balance </p>
+            </div>
+            <div class="row" data-reactid=".0.1.1">
+                <div class="options" data-reactid=".0.1.1.0">
+                    <form data-reactid=".0.1.1.0.0" lpformnum="1">
+                        <fieldset class="form-group" data-reactid=".0.1.1.0.0.0">
+                            <label data-reactid=".0.1.1.0.0.0.0">Fare</label>
+                            <select class="form-control" data-reactid=".0.1.1.0.0.0.1" readonly>
+                                <option value="1.35" data-reactid=".0.1.1.0.0.0.1.0">$1.35 (Senior Fare)</option>
+                                <option selected="" value="2.75" data-reactid=".0.1.1.0.0.0.1.1">$2.75 (Regular Fare)</option>
+                                <option value="3.25" data-reactid=".0.1.1.0.0.0.1.2">$3.25 (Senior Express Bus)</option>
+                                <option value="6.50" data-reactid=".0.1.1.0.0.0.1.3">$6.50 (Regular Express Bus)</option>
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group" data-reactid=".0.1.1.0.0.1">
+                            <label data-reactid=".0.1.1.0.0.1.0">Current Balance</label>
+                            <div class="prefix-form-control" data-reactid=".0.1.1.0.0.1.1"><span class="prefix" data-reactid=".0.1.1.0.0.1.1.0">$</span>
+                                <input class="form-control" value="0" type="number" pattern="[\d\.]*" step="0.05" min="0.0" data-reactid=".0.1.1.0.0.1.1.1" readonly>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label>Fare</label>
-                        <select class="browser-default">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="2.75">$2.75</option>
-                        </select>
-                        </div>
+            </div>
+            <div data-reactid=".0.1.2">
+                <div class="fare-header" data-reactid=".0.1.2.0">
+                    <div class="ride" data-reactid=".0.1.2.0.0">Rides</div>
+                    <div class="you-pay" data-reactid=".0.1.2.0.1">You Pay</div>
+                    <div class="bonus" data-reactid=".0.1.2.0.2">Bonus</div>
+                    <div class="remainder" data-reactid=".0.1.2.0.3">Remainder</div>
+                </div>
+                <div data-reactid=".0.1.2.1:1">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1.1.0">1</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1.1.1"><span data-reactid=".0.1.2.1:1.1.1.0">$</span><span data-reactid=".0.1.2.1:1.1.1.1">2.75</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1.1.2"><span data-reactid=".0.1.2.1:1.1.2.0">$</span><span data-reactid=".0.1.2.1:1.1.2.1">0.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1.1.3"><span data-reactid=".0.1.2.1:1.1.3.0">$</span><span data-reactid=".0.1.2.1:1.1.3.1">0.00</span></div>
                     </div>
                 </div>
-            </form>
+                <div data-reactid=".0.1.2.1:2">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2.1.0">2</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2.1.1"><span data-reactid=".0.1.2.1:2.1.1.0">$</span><span data-reactid=".0.1.2.1:2.1.1.1">5.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2.1.2"><span data-reactid=".0.1.2.1:2.1.2.0">$</span><span data-reactid=".0.1.2.1:2.1.2.1">0.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2.1.3"><span data-reactid=".0.1.2.1:2.1.3.0">$</span><span data-reactid=".0.1.2.1:2.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:3">
+                    <div class="fare-item" data-reactid=".0.1.2.1:3.1">
+                        <div class="ride" data-reactid=".0.1.2.1:3.1.0">3</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:3.1.1"><span data-reactid=".0.1.2.1:3.1.1.0">$</span><span data-reactid=".0.1.2.1:3.1.1.1">7.45</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:3.1.2"><span data-reactid=".0.1.2.1:3.1.2.0">$</span><span data-reactid=".0.1.2.1:3.1.2.1">0.82</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:3.1.3"><span data-reactid=".0.1.2.1:3.1.3.0">$</span><span data-reactid=".0.1.2.1:3.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:4">
+                    <div class="fare-item" data-reactid=".0.1.2.1:4.1">
+                        <div class="ride" data-reactid=".0.1.2.1:4.1.0">4</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:4.1.1"><span data-reactid=".0.1.2.1:4.1.1.0">$</span><span data-reactid=".0.1.2.1:4.1.1.1">9.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:4.1.2"><span data-reactid=".0.1.2.1:4.1.2.0">$</span><span data-reactid=".0.1.2.1:4.1.2.1">1.09</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:4.1.3"><span data-reactid=".0.1.2.1:4.1.3.0">$</span><span data-reactid=".0.1.2.1:4.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:5">
+                    <div class="fare-item" data-reactid=".0.1.2.1:5.1">
+                        <div class="ride" data-reactid=".0.1.2.1:5.1.0">5</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:5.1.1"><span data-reactid=".0.1.2.1:5.1.1.0">$</span><span data-reactid=".0.1.2.1:5.1.1.1">12.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:5.1.2"><span data-reactid=".0.1.2.1:5.1.2.0">$</span><span data-reactid=".0.1.2.1:5.1.2.1">1.36</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:5.1.3"><span data-reactid=".0.1.2.1:5.1.3.0">$</span><span data-reactid=".0.1.2.1:5.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:6">
+                    <div class="fare-item" data-reactid=".0.1.2.1:6.1">
+                        <div class="ride" data-reactid=".0.1.2.1:6.1.0">6</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:6.1.1"><span data-reactid=".0.1.2.1:6.1.1.0">$</span><span data-reactid=".0.1.2.1:6.1.1.1">14.90</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:6.1.2"><span data-reactid=".0.1.2.1:6.1.2.0">$</span><span data-reactid=".0.1.2.1:6.1.2.1">1.64</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:6.1.3"><span data-reactid=".0.1.2.1:6.1.3.0">$</span><span data-reactid=".0.1.2.1:6.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:7">
+                    <div class="fare-item" data-reactid=".0.1.2.1:7.1">
+                        <div class="ride" data-reactid=".0.1.2.1:7.1.0">7</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:7.1.1"><span data-reactid=".0.1.2.1:7.1.1.0">$</span><span data-reactid=".0.1.2.1:7.1.1.1">17.35</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:7.1.2"><span data-reactid=".0.1.2.1:7.1.2.0">$</span><span data-reactid=".0.1.2.1:7.1.2.1">1.91</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:7.1.3"><span data-reactid=".0.1.2.1:7.1.3.0">$</span><span data-reactid=".0.1.2.1:7.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:8">
+                    <div class="fare-item" data-reactid=".0.1.2.1:8.1">
+                        <div class="ride" data-reactid=".0.1.2.1:8.1.0">8</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:8.1.1"><span data-reactid=".0.1.2.1:8.1.1.0">$</span><span data-reactid=".0.1.2.1:8.1.1.1">19.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:8.1.2"><span data-reactid=".0.1.2.1:8.1.2.0">$</span><span data-reactid=".0.1.2.1:8.1.2.1">2.18</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:8.1.3"><span data-reactid=".0.1.2.1:8.1.3.0">$</span><span data-reactid=".0.1.2.1:8.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:9">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:9.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:9.1">
+                        <div class="ride" data-reactid=".0.1.2.1:9.1.0">9</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:9.1.1"><span data-reactid=".0.1.2.1:9.1.1.0">$</span><span data-reactid=".0.1.2.1:9.1.1.1">22.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:9.1.2"><span data-reactid=".0.1.2.1:9.1.2.0">$</span><span data-reactid=".0.1.2.1:9.1.2.1">2.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:9.1.3"><span data-reactid=".0.1.2.1:9.1.3.0">$</span><span data-reactid=".0.1.2.1:9.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:a">
+                    <div class="fare-item" data-reactid=".0.1.2.1:a.1">
+                        <div class="ride" data-reactid=".0.1.2.1:a.1.0">10</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:a.1.1"><span data-reactid=".0.1.2.1:a.1.1.0">$</span><span data-reactid=".0.1.2.1:a.1.1.1">24.80</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:a.1.2"><span data-reactid=".0.1.2.1:a.1.2.0">$</span><span data-reactid=".0.1.2.1:a.1.2.1">2.73</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:a.1.3"><span data-reactid=".0.1.2.1:a.1.3.0">$</span><span data-reactid=".0.1.2.1:a.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:b">
+                    <div class="fare-item" data-reactid=".0.1.2.1:b.1">
+                        <div class="ride" data-reactid=".0.1.2.1:b.1.0">11</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:b.1.1"><span data-reactid=".0.1.2.1:b.1.1.0">$</span><span data-reactid=".0.1.2.1:b.1.1.1">27.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:b.1.2"><span data-reactid=".0.1.2.1:b.1.2.0">$</span><span data-reactid=".0.1.2.1:b.1.2.1">3.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:b.1.3"><span data-reactid=".0.1.2.1:b.1.3.0">$</span><span data-reactid=".0.1.2.1:b.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:c">
+                    <div class="fare-item" data-reactid=".0.1.2.1:c.1">
+                        <div class="ride" data-reactid=".0.1.2.1:c.1.0">12</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:c.1.1"><span data-reactid=".0.1.2.1:c.1.1.0">$</span><span data-reactid=".0.1.2.1:c.1.1.1">29.75</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:c.1.2"><span data-reactid=".0.1.2.1:c.1.2.0">$</span><span data-reactid=".0.1.2.1:c.1.2.1">3.27</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:c.1.3"><span data-reactid=".0.1.2.1:c.1.3.0">$</span><span data-reactid=".0.1.2.1:c.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:d">
+                    <div class="fare-item" data-reactid=".0.1.2.1:d.1">
+                        <div class="ride" data-reactid=".0.1.2.1:d.1.0">13</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:d.1.1"><span data-reactid=".0.1.2.1:d.1.1.0">$</span><span data-reactid=".0.1.2.1:d.1.1.1">32.25</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:d.1.2"><span data-reactid=".0.1.2.1:d.1.2.0">$</span><span data-reactid=".0.1.2.1:d.1.2.1">3.55</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:d.1.3"><span data-reactid=".0.1.2.1:d.1.3.0">$</span><span data-reactid=".0.1.2.1:d.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:e">
+                    <div class="fare-item" data-reactid=".0.1.2.1:e.1">
+                        <div class="ride" data-reactid=".0.1.2.1:e.1.0">14</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:e.1.1"><span data-reactid=".0.1.2.1:e.1.1.0">$</span><span data-reactid=".0.1.2.1:e.1.1.1">34.70</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:e.1.2"><span data-reactid=".0.1.2.1:e.1.2.0">$</span><span data-reactid=".0.1.2.1:e.1.2.1">3.82</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:e.1.3"><span data-reactid=".0.1.2.1:e.1.3.0">$</span><span data-reactid=".0.1.2.1:e.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:f">
+                    <div class="fare-item" data-reactid=".0.1.2.1:f.1">
+                        <div class="ride" data-reactid=".0.1.2.1:f.1.0">15</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:f.1.1"><span data-reactid=".0.1.2.1:f.1.1.0">$</span><span data-reactid=".0.1.2.1:f.1.1.1">37.20</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:f.1.2"><span data-reactid=".0.1.2.1:f.1.2.0">$</span><span data-reactid=".0.1.2.1:f.1.2.1">4.09</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:f.1.3"><span data-reactid=".0.1.2.1:f.1.3.0">$</span><span data-reactid=".0.1.2.1:f.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:g">
+                    <div class="fare-item" data-reactid=".0.1.2.1:g.1">
+                        <div class="ride" data-reactid=".0.1.2.1:g.1.0">16</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:g.1.1"><span data-reactid=".0.1.2.1:g.1.1.0">$</span><span data-reactid=".0.1.2.1:g.1.1.1">39.65</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:g.1.2"><span data-reactid=".0.1.2.1:g.1.2.0">$</span><span data-reactid=".0.1.2.1:g.1.2.1">4.36</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:g.1.3"><span data-reactid=".0.1.2.1:g.1.3.0">$</span><span data-reactid=".0.1.2.1:g.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:h">
+                    <div class="fare-item" data-reactid=".0.1.2.1:h.1">
+                        <div class="ride" data-reactid=".0.1.2.1:h.1.0">17</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:h.1.1"><span data-reactid=".0.1.2.1:h.1.1.0">$</span><span data-reactid=".0.1.2.1:h.1.1.1">42.15</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:h.1.2"><span data-reactid=".0.1.2.1:h.1.2.0">$</span><span data-reactid=".0.1.2.1:h.1.2.1">4.64</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:h.1.3"><span data-reactid=".0.1.2.1:h.1.3.0">$</span><span data-reactid=".0.1.2.1:h.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:i">
+                    <div class="fare-item" data-reactid=".0.1.2.1:i.1">
+                        <div class="ride" data-reactid=".0.1.2.1:i.1.0">18</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:i.1.1"><span data-reactid=".0.1.2.1:i.1.1.0">$</span><span data-reactid=".0.1.2.1:i.1.1.1">44.60</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:i.1.2"><span data-reactid=".0.1.2.1:i.1.2.0">$</span><span data-reactid=".0.1.2.1:i.1.2.1">4.91</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:i.1.3"><span data-reactid=".0.1.2.1:i.1.3.0">$</span><span data-reactid=".0.1.2.1:i.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:j">
+                    <div class="fare-item" data-reactid=".0.1.2.1:j.1">
+                        <div class="ride" data-reactid=".0.1.2.1:j.1.0">19</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:j.1.1"><span data-reactid=".0.1.2.1:j.1.1.0">$</span><span data-reactid=".0.1.2.1:j.1.1.1">47.10</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:j.1.2"><span data-reactid=".0.1.2.1:j.1.2.0">$</span><span data-reactid=".0.1.2.1:j.1.2.1">5.18</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:j.1.3"><span data-reactid=".0.1.2.1:j.1.3.0">$</span><span data-reactid=".0.1.2.1:j.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:k">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:k.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:k.1">
+                        <div class="ride" data-reactid=".0.1.2.1:k.1.0">20</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:k.1.1"><span data-reactid=".0.1.2.1:k.1.1.0">$</span><span data-reactid=".0.1.2.1:k.1.1.1">49.55</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:k.1.2"><span data-reactid=".0.1.2.1:k.1.2.0">$</span><span data-reactid=".0.1.2.1:k.1.2.1">5.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:k.1.3"><span data-reactid=".0.1.2.1:k.1.3.0">$</span><span data-reactid=".0.1.2.1:k.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:l">
+                    <div class="fare-item" data-reactid=".0.1.2.1:l.1">
+                        <div class="ride" data-reactid=".0.1.2.1:l.1.0">21</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:l.1.1"><span data-reactid=".0.1.2.1:l.1.1.0">$</span><span data-reactid=".0.1.2.1:l.1.1.1">52.05</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:l.1.2"><span data-reactid=".0.1.2.1:l.1.2.0">$</span><span data-reactid=".0.1.2.1:l.1.2.1">5.73</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:l.1.3"><span data-reactid=".0.1.2.1:l.1.3.0">$</span><span data-reactid=".0.1.2.1:l.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:m">
+                    <div class="fare-item" data-reactid=".0.1.2.1:m.1">
+                        <div class="ride" data-reactid=".0.1.2.1:m.1.0">22</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:m.1.1"><span data-reactid=".0.1.2.1:m.1.1.0">$</span><span data-reactid=".0.1.2.1:m.1.1.1">54.55</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:m.1.2"><span data-reactid=".0.1.2.1:m.1.2.0">$</span><span data-reactid=".0.1.2.1:m.1.2.1">6.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:m.1.3"><span data-reactid=".0.1.2.1:m.1.3.0">$</span><span data-reactid=".0.1.2.1:m.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:n">
+                    <div class="fare-item" data-reactid=".0.1.2.1:n.1">
+                        <div class="ride" data-reactid=".0.1.2.1:n.1.0">23</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:n.1.1"><span data-reactid=".0.1.2.1:n.1.1.0">$</span><span data-reactid=".0.1.2.1:n.1.1.1">57.00</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:n.1.2"><span data-reactid=".0.1.2.1:n.1.2.0">$</span><span data-reactid=".0.1.2.1:n.1.2.1">6.27</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:n.1.3"><span data-reactid=".0.1.2.1:n.1.3.0">$</span><span data-reactid=".0.1.2.1:n.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:o">
+                    <div class="fare-item" data-reactid=".0.1.2.1:o.1">
+                        <div class="ride" data-reactid=".0.1.2.1:o.1.0">24</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:o.1.1"><span data-reactid=".0.1.2.1:o.1.1.0">$</span><span data-reactid=".0.1.2.1:o.1.1.1">59.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:o.1.2"><span data-reactid=".0.1.2.1:o.1.2.0">$</span><span data-reactid=".0.1.2.1:o.1.2.1">6.54</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:o.1.3"><span data-reactid=".0.1.2.1:o.1.3.0">$</span><span data-reactid=".0.1.2.1:o.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:p">
+                    <div class="fare-item" data-reactid=".0.1.2.1:p.1">
+                        <div class="ride" data-reactid=".0.1.2.1:p.1.0">25</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:p.1.1"><span data-reactid=".0.1.2.1:p.1.1.0">$</span><span data-reactid=".0.1.2.1:p.1.1.1">61.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:p.1.2"><span data-reactid=".0.1.2.1:p.1.2.0">$</span><span data-reactid=".0.1.2.1:p.1.2.1">6.81</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:p.1.3"><span data-reactid=".0.1.2.1:p.1.3.0">$</span><span data-reactid=".0.1.2.1:p.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:q">
+                    <div class="fare-item" data-reactid=".0.1.2.1:q.1">
+                        <div class="ride" data-reactid=".0.1.2.1:q.1.0">26</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:q.1.1"><span data-reactid=".0.1.2.1:q.1.1.0">$</span><span data-reactid=".0.1.2.1:q.1.1.1">64.45</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:q.1.2"><span data-reactid=".0.1.2.1:q.1.2.0">$</span><span data-reactid=".0.1.2.1:q.1.2.1">7.09</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:q.1.3"><span data-reactid=".0.1.2.1:q.1.3.0">$</span><span data-reactid=".0.1.2.1:q.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:r">
+                    <div class="fare-item" data-reactid=".0.1.2.1:r.1">
+                        <div class="ride" data-reactid=".0.1.2.1:r.1.0">27</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:r.1.1"><span data-reactid=".0.1.2.1:r.1.1.0">$</span><span data-reactid=".0.1.2.1:r.1.1.1">66.90</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:r.1.2"><span data-reactid=".0.1.2.1:r.1.2.0">$</span><span data-reactid=".0.1.2.1:r.1.2.1">7.36</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:r.1.3"><span data-reactid=".0.1.2.1:r.1.3.0">$</span><span data-reactid=".0.1.2.1:r.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:s">
+                    <div class="fare-item" data-reactid=".0.1.2.1:s.1">
+                        <div class="ride" data-reactid=".0.1.2.1:s.1.0">28</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:s.1.1"><span data-reactid=".0.1.2.1:s.1.1.0">$</span><span data-reactid=".0.1.2.1:s.1.1.1">69.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:s.1.2"><span data-reactid=".0.1.2.1:s.1.2.0">$</span><span data-reactid=".0.1.2.1:s.1.2.1">7.63</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:s.1.3"><span data-reactid=".0.1.2.1:s.1.3.0">$</span><span data-reactid=".0.1.2.1:s.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:t">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:t.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:t.1">
+                        <div class="ride" data-reactid=".0.1.2.1:t.1.0">29</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:t.1.1"><span data-reactid=".0.1.2.1:t.1.1.0">$</span><span data-reactid=".0.1.2.1:t.1.1.1">71.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:t.1.2"><span data-reactid=".0.1.2.1:t.1.2.0">$</span><span data-reactid=".0.1.2.1:t.1.2.1">7.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:t.1.3"><span data-reactid=".0.1.2.1:t.1.3.0">$</span><span data-reactid=".0.1.2.1:t.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:u">
+                    <div class="fare-item" data-reactid=".0.1.2.1:u.1">
+                        <div class="ride" data-reactid=".0.1.2.1:u.1.0">30</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:u.1.1"><span data-reactid=".0.1.2.1:u.1.1.0">$</span><span data-reactid=".0.1.2.1:u.1.1.1">74.35</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:u.1.2"><span data-reactid=".0.1.2.1:u.1.2.0">$</span><span data-reactid=".0.1.2.1:u.1.2.1">8.18</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:u.1.3"><span data-reactid=".0.1.2.1:u.1.3.0">$</span><span data-reactid=".0.1.2.1:u.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:v">
+                    <div class="fare-item" data-reactid=".0.1.2.1:v.1">
+                        <div class="ride" data-reactid=".0.1.2.1:v.1.0">31</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:v.1.1"><span data-reactid=".0.1.2.1:v.1.1.0">$</span><span data-reactid=".0.1.2.1:v.1.1.1">76.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:v.1.2"><span data-reactid=".0.1.2.1:v.1.2.0">$</span><span data-reactid=".0.1.2.1:v.1.2.1">8.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:v.1.3"><span data-reactid=".0.1.2.1:v.1.3.0">$</span><span data-reactid=".0.1.2.1:v.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:w">
+                    <div class="fare-item" data-reactid=".0.1.2.1:w.1">
+                        <div class="ride" data-reactid=".0.1.2.1:w.1.0">32</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:w.1.1"><span data-reactid=".0.1.2.1:w.1.1.0">$</span><span data-reactid=".0.1.2.1:w.1.1.1">79.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:w.1.2"><span data-reactid=".0.1.2.1:w.1.2.0">$</span><span data-reactid=".0.1.2.1:w.1.2.1">8.72</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:w.1.3"><span data-reactid=".0.1.2.1:w.1.3.0">$</span><span data-reactid=".0.1.2.1:w.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:x">
+                    <div class="fare-item" data-reactid=".0.1.2.1:x.1">
+                        <div class="ride" data-reactid=".0.1.2.1:x.1.0">33</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:x.1.1"><span data-reactid=".0.1.2.1:x.1.1.0">$</span><span data-reactid=".0.1.2.1:x.1.1.1">81.80</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:x.1.2"><span data-reactid=".0.1.2.1:x.1.2.0">$</span><span data-reactid=".0.1.2.1:x.1.2.1">9.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:x.1.3"><span data-reactid=".0.1.2.1:x.1.3.0">$</span><span data-reactid=".0.1.2.1:x.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:y">
+                    <div class="fare-item" data-reactid=".0.1.2.1:y.1">
+                        <div class="ride" data-reactid=".0.1.2.1:y.1.0">34</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:y.1.1"><span data-reactid=".0.1.2.1:y.1.1.0">$</span><span data-reactid=".0.1.2.1:y.1.1.1">84.25</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:y.1.2"><span data-reactid=".0.1.2.1:y.1.2.0">$</span><span data-reactid=".0.1.2.1:y.1.2.1">9.27</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:y.1.3"><span data-reactid=".0.1.2.1:y.1.3.0">$</span><span data-reactid=".0.1.2.1:y.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:z">
+                    <div class="fare-item" data-reactid=".0.1.2.1:z.1">
+                        <div class="ride" data-reactid=".0.1.2.1:z.1.0">35</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:z.1.1"><span data-reactid=".0.1.2.1:z.1.1.0">$</span><span data-reactid=".0.1.2.1:z.1.1.1">86.75</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:z.1.2"><span data-reactid=".0.1.2.1:z.1.2.0">$</span><span data-reactid=".0.1.2.1:z.1.2.1">9.54</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:z.1.3"><span data-reactid=".0.1.2.1:z.1.3.0">$</span><span data-reactid=".0.1.2.1:z.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:10">
+                    <div class="fare-item" data-reactid=".0.1.2.1:10.1">
+                        <div class="ride" data-reactid=".0.1.2.1:10.1.0">36</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:10.1.1"><span data-reactid=".0.1.2.1:10.1.1.0">$</span><span data-reactid=".0.1.2.1:10.1.1.1">89.20</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:10.1.2"><span data-reactid=".0.1.2.1:10.1.2.0">$</span><span data-reactid=".0.1.2.1:10.1.2.1">9.81</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:10.1.3"><span data-reactid=".0.1.2.1:10.1.3.0">$</span><span data-reactid=".0.1.2.1:10.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:11">
+                    <div class="fare-item" data-reactid=".0.1.2.1:11.1">
+                        <div class="ride" data-reactid=".0.1.2.1:11.1.0">37</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:11.1.1"><span data-reactid=".0.1.2.1:11.1.1.0">$</span><span data-reactid=".0.1.2.1:11.1.1.1">91.70</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:11.1.2"><span data-reactid=".0.1.2.1:11.1.2.0">$</span><span data-reactid=".0.1.2.1:11.1.2.1">10.09</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:11.1.3"><span data-reactid=".0.1.2.1:11.1.3.0">$</span><span data-reactid=".0.1.2.1:11.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:12">
+                    <div class="fare-item" data-reactid=".0.1.2.1:12.1">
+                        <div class="ride" data-reactid=".0.1.2.1:12.1.0">38</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:12.1.1"><span data-reactid=".0.1.2.1:12.1.1.0">$</span><span data-reactid=".0.1.2.1:12.1.1.1">94.15</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:12.1.2"><span data-reactid=".0.1.2.1:12.1.2.0">$</span><span data-reactid=".0.1.2.1:12.1.2.1">10.36</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:12.1.3"><span data-reactid=".0.1.2.1:12.1.3.0">$</span><span data-reactid=".0.1.2.1:12.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:13">
+                    <div class="fare-item" data-reactid=".0.1.2.1:13.1">
+                        <div class="ride" data-reactid=".0.1.2.1:13.1.0">39</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:13.1.1"><span data-reactid=".0.1.2.1:13.1.1.0">$</span><span data-reactid=".0.1.2.1:13.1.1.1">96.65</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:13.1.2"><span data-reactid=".0.1.2.1:13.1.2.0">$</span><span data-reactid=".0.1.2.1:13.1.2.1">10.63</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:13.1.3"><span data-reactid=".0.1.2.1:13.1.3.0">$</span><span data-reactid=".0.1.2.1:13.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:14">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:14.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:14.1">
+                        <div class="ride" data-reactid=".0.1.2.1:14.1.0">40</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:14.1.1"><span data-reactid=".0.1.2.1:14.1.1.0">$</span><span data-reactid=".0.1.2.1:14.1.1.1">99.10</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:14.1.2"><span data-reactid=".0.1.2.1:14.1.2.0">$</span><span data-reactid=".0.1.2.1:14.1.2.1">10.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:14.1.3"><span data-reactid=".0.1.2.1:14.1.3.0">$</span><span data-reactid=".0.1.2.1:14.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:15">
+                    <div class="fare-item" data-reactid=".0.1.2.1:15.1">
+                        <div class="ride" data-reactid=".0.1.2.1:15.1.0">41</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:15.1.1"><span data-reactid=".0.1.2.1:15.1.1.0">$</span><span data-reactid=".0.1.2.1:15.1.1.1">101.60</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:15.1.2"><span data-reactid=".0.1.2.1:15.1.2.0">$</span><span data-reactid=".0.1.2.1:15.1.2.1">11.18</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:15.1.3"><span data-reactid=".0.1.2.1:15.1.3.0">$</span><span data-reactid=".0.1.2.1:15.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:16">
+                    <div class="fare-item" data-reactid=".0.1.2.1:16.1">
+                        <div class="ride" data-reactid=".0.1.2.1:16.1.0">42</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:16.1.1"><span data-reactid=".0.1.2.1:16.1.1.0">$</span><span data-reactid=".0.1.2.1:16.1.1.1">104.10</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:16.1.2"><span data-reactid=".0.1.2.1:16.1.2.0">$</span><span data-reactid=".0.1.2.1:16.1.2.1">11.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:16.1.3"><span data-reactid=".0.1.2.1:16.1.3.0">$</span><span data-reactid=".0.1.2.1:16.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:17">
+                    <div class="fare-item" data-reactid=".0.1.2.1:17.1">
+                        <div class="ride" data-reactid=".0.1.2.1:17.1.0">43</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:17.1.1"><span data-reactid=".0.1.2.1:17.1.1.0">$</span><span data-reactid=".0.1.2.1:17.1.1.1">106.55</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:17.1.2"><span data-reactid=".0.1.2.1:17.1.2.0">$</span><span data-reactid=".0.1.2.1:17.1.2.1">11.72</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:17.1.3"><span data-reactid=".0.1.2.1:17.1.3.0">$</span><span data-reactid=".0.1.2.1:17.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:18">
+                    <div class="fare-item" data-reactid=".0.1.2.1:18.1">
+                        <div class="ride" data-reactid=".0.1.2.1:18.1.0">44</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:18.1.1"><span data-reactid=".0.1.2.1:18.1.1.0">$</span><span data-reactid=".0.1.2.1:18.1.1.1">109.05</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:18.1.2"><span data-reactid=".0.1.2.1:18.1.2.0">$</span><span data-reactid=".0.1.2.1:18.1.2.1">12.00</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:18.1.3"><span data-reactid=".0.1.2.1:18.1.3.0">$</span><span data-reactid=".0.1.2.1:18.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:19">
+                    <div class="fare-item" data-reactid=".0.1.2.1:19.1">
+                        <div class="ride" data-reactid=".0.1.2.1:19.1.0">45</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:19.1.1"><span data-reactid=".0.1.2.1:19.1.1.0">$</span><span data-reactid=".0.1.2.1:19.1.1.1">111.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:19.1.2"><span data-reactid=".0.1.2.1:19.1.2.0">$</span><span data-reactid=".0.1.2.1:19.1.2.1">12.27</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:19.1.3"><span data-reactid=".0.1.2.1:19.1.3.0">$</span><span data-reactid=".0.1.2.1:19.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1a">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1a.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1a.1.0">46</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1a.1.1"><span data-reactid=".0.1.2.1:1a.1.1.0">$</span><span data-reactid=".0.1.2.1:1a.1.1.1">114.00</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1a.1.2"><span data-reactid=".0.1.2.1:1a.1.2.0">$</span><span data-reactid=".0.1.2.1:1a.1.2.1">12.54</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1a.1.3"><span data-reactid=".0.1.2.1:1a.1.3.0">$</span><span data-reactid=".0.1.2.1:1a.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1b">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1b.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1b.1.0">47</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1b.1.1"><span data-reactid=".0.1.2.1:1b.1.1.0">$</span><span data-reactid=".0.1.2.1:1b.1.1.1">116.45</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1b.1.2"><span data-reactid=".0.1.2.1:1b.1.2.0">$</span><span data-reactid=".0.1.2.1:1b.1.2.1">12.81</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1b.1.3"><span data-reactid=".0.1.2.1:1b.1.3.0">$</span><span data-reactid=".0.1.2.1:1b.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1c">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1c.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1c.1.0">48</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1c.1.1"><span data-reactid=".0.1.2.1:1c.1.1.0">$</span><span data-reactid=".0.1.2.1:1c.1.1.1">118.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1c.1.2"><span data-reactid=".0.1.2.1:1c.1.2.0">$</span><span data-reactid=".0.1.2.1:1c.1.2.1">13.08</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1c.1.3"><span data-reactid=".0.1.2.1:1c.1.3.0">$</span><span data-reactid=".0.1.2.1:1c.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1d">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:1d.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:1d.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1d.1.0">49</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1d.1.1"><span data-reactid=".0.1.2.1:1d.1.1.0">$</span><span data-reactid=".0.1.2.1:1d.1.1.1">121.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1d.1.2"><span data-reactid=".0.1.2.1:1d.1.2.0">$</span><span data-reactid=".0.1.2.1:1d.1.2.1">13.35</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1d.1.3"><span data-reactid=".0.1.2.1:1d.1.3.0">$</span><span data-reactid=".0.1.2.1:1d.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1e">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1e.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1e.1.0">50</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1e.1.1"><span data-reactid=".0.1.2.1:1e.1.1.0">$</span><span data-reactid=".0.1.2.1:1e.1.1.1">123.90</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1e.1.2"><span data-reactid=".0.1.2.1:1e.1.2.0">$</span><span data-reactid=".0.1.2.1:1e.1.2.1">13.63</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1e.1.3"><span data-reactid=".0.1.2.1:1e.1.3.0">$</span><span data-reactid=".0.1.2.1:1e.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1f">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1f.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1f.1.0">51</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1f.1.1"><span data-reactid=".0.1.2.1:1f.1.1.0">$</span><span data-reactid=".0.1.2.1:1f.1.1.1">126.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1f.1.2"><span data-reactid=".0.1.2.1:1f.1.2.0">$</span><span data-reactid=".0.1.2.1:1f.1.2.1">13.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1f.1.3"><span data-reactid=".0.1.2.1:1f.1.3.0">$</span><span data-reactid=".0.1.2.1:1f.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1g">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1g.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1g.1.0">52</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1g.1.1"><span data-reactid=".0.1.2.1:1g.1.1.0">$</span><span data-reactid=".0.1.2.1:1g.1.1.1">128.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1g.1.2"><span data-reactid=".0.1.2.1:1g.1.2.0">$</span><span data-reactid=".0.1.2.1:1g.1.2.1">14.17</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1g.1.3"><span data-reactid=".0.1.2.1:1g.1.3.0">$</span><span data-reactid=".0.1.2.1:1g.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1h">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1h.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1h.1.0">53</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1h.1.1"><span data-reactid=".0.1.2.1:1h.1.1.0">$</span><span data-reactid=".0.1.2.1:1h.1.1.1">131.35</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1h.1.2"><span data-reactid=".0.1.2.1:1h.1.2.0">$</span><span data-reactid=".0.1.2.1:1h.1.2.1">14.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1h.1.3"><span data-reactid=".0.1.2.1:1h.1.3.0">$</span><span data-reactid=".0.1.2.1:1h.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1i">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1i.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1i.1.0">54</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1i.1.1"><span data-reactid=".0.1.2.1:1i.1.1.0">$</span><span data-reactid=".0.1.2.1:1i.1.1.1">133.80</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1i.1.2"><span data-reactid=".0.1.2.1:1i.1.2.0">$</span><span data-reactid=".0.1.2.1:1i.1.2.1">14.72</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1i.1.3"><span data-reactid=".0.1.2.1:1i.1.3.0">$</span><span data-reactid=".0.1.2.1:1i.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1j">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1j.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1j.1.0">55</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1j.1.1"><span data-reactid=".0.1.2.1:1j.1.1.0">$</span><span data-reactid=".0.1.2.1:1j.1.1.1">136.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1j.1.2"><span data-reactid=".0.1.2.1:1j.1.2.0">$</span><span data-reactid=".0.1.2.1:1j.1.2.1">14.99</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1j.1.3"><span data-reactid=".0.1.2.1:1j.1.3.0">$</span><span data-reactid=".0.1.2.1:1j.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1k">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1k.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1k.1.0">56</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1k.1.1"><span data-reactid=".0.1.2.1:1k.1.1.0">$</span><span data-reactid=".0.1.2.1:1k.1.1.1">138.75</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1k.1.2"><span data-reactid=".0.1.2.1:1k.1.2.0">$</span><span data-reactid=".0.1.2.1:1k.1.2.1">15.26</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1k.1.3"><span data-reactid=".0.1.2.1:1k.1.3.0">$</span><span data-reactid=".0.1.2.1:1k.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1l">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1l.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1l.1.0">57</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1l.1.1"><span data-reactid=".0.1.2.1:1l.1.1.0">$</span><span data-reactid=".0.1.2.1:1l.1.1.1">141.25</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1l.1.2"><span data-reactid=".0.1.2.1:1l.1.2.0">$</span><span data-reactid=".0.1.2.1:1l.1.2.1">15.54</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1l.1.3"><span data-reactid=".0.1.2.1:1l.1.3.0">$</span><span data-reactid=".0.1.2.1:1l.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1m">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1m.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1m.1.0">58</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1m.1.1"><span data-reactid=".0.1.2.1:1m.1.1.0">$</span><span data-reactid=".0.1.2.1:1m.1.1.1">143.70</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1m.1.2"><span data-reactid=".0.1.2.1:1m.1.2.0">$</span><span data-reactid=".0.1.2.1:1m.1.2.1">15.81</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1m.1.3"><span data-reactid=".0.1.2.1:1m.1.3.0">$</span><span data-reactid=".0.1.2.1:1m.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1n">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1n.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1n.1.0">59</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1n.1.1"><span data-reactid=".0.1.2.1:1n.1.1.0">$</span><span data-reactid=".0.1.2.1:1n.1.1.1">146.20</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1n.1.2"><span data-reactid=".0.1.2.1:1n.1.2.0">$</span><span data-reactid=".0.1.2.1:1n.1.2.1">16.08</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1n.1.3"><span data-reactid=".0.1.2.1:1n.1.3.0">$</span><span data-reactid=".0.1.2.1:1n.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1o">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:1o.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:1o.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1o.1.0">60</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1o.1.1"><span data-reactid=".0.1.2.1:1o.1.1.0">$</span><span data-reactid=".0.1.2.1:1o.1.1.1">148.65</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1o.1.2"><span data-reactid=".0.1.2.1:1o.1.2.0">$</span><span data-reactid=".0.1.2.1:1o.1.2.1">16.35</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1o.1.3"><span data-reactid=".0.1.2.1:1o.1.3.0">$</span><span data-reactid=".0.1.2.1:1o.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1p">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1p.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1p.1.0">61</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1p.1.1"><span data-reactid=".0.1.2.1:1p.1.1.0">$</span><span data-reactid=".0.1.2.1:1p.1.1.1">151.15</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1p.1.2"><span data-reactid=".0.1.2.1:1p.1.2.0">$</span><span data-reactid=".0.1.2.1:1p.1.2.1">16.63</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1p.1.3"><span data-reactid=".0.1.2.1:1p.1.3.0">$</span><span data-reactid=".0.1.2.1:1p.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1q">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1q.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1q.1.0">62</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1q.1.1"><span data-reactid=".0.1.2.1:1q.1.1.0">$</span><span data-reactid=".0.1.2.1:1q.1.1.1">153.65</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1q.1.2"><span data-reactid=".0.1.2.1:1q.1.2.0">$</span><span data-reactid=".0.1.2.1:1q.1.2.1">16.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1q.1.3"><span data-reactid=".0.1.2.1:1q.1.3.0">$</span><span data-reactid=".0.1.2.1:1q.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1r">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1r.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1r.1.0">63</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1r.1.1"><span data-reactid=".0.1.2.1:1r.1.1.0">$</span><span data-reactid=".0.1.2.1:1r.1.1.1">156.10</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1r.1.2"><span data-reactid=".0.1.2.1:1r.1.2.0">$</span><span data-reactid=".0.1.2.1:1r.1.2.1">17.17</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1r.1.3"><span data-reactid=".0.1.2.1:1r.1.3.0">$</span><span data-reactid=".0.1.2.1:1r.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1s">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1s.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1s.1.0">64</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1s.1.1"><span data-reactid=".0.1.2.1:1s.1.1.0">$</span><span data-reactid=".0.1.2.1:1s.1.1.1">158.60</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1s.1.2"><span data-reactid=".0.1.2.1:1s.1.2.0">$</span><span data-reactid=".0.1.2.1:1s.1.2.1">17.45</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1s.1.3"><span data-reactid=".0.1.2.1:1s.1.3.0">$</span><span data-reactid=".0.1.2.1:1s.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1t">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1t.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1t.1.0">65</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1t.1.1"><span data-reactid=".0.1.2.1:1t.1.1.0">$</span><span data-reactid=".0.1.2.1:1t.1.1.1">161.05</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1t.1.2"><span data-reactid=".0.1.2.1:1t.1.2.0">$</span><span data-reactid=".0.1.2.1:1t.1.2.1">17.72</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1t.1.3"><span data-reactid=".0.1.2.1:1t.1.3.0">$</span><span data-reactid=".0.1.2.1:1t.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1u">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1u.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1u.1.0">66</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1u.1.1"><span data-reactid=".0.1.2.1:1u.1.1.0">$</span><span data-reactid=".0.1.2.1:1u.1.1.1">163.55</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1u.1.2"><span data-reactid=".0.1.2.1:1u.1.2.0">$</span><span data-reactid=".0.1.2.1:1u.1.2.1">17.99</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1u.1.3"><span data-reactid=".0.1.2.1:1u.1.3.0">$</span><span data-reactid=".0.1.2.1:1u.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1v">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1v.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1v.1.0">67</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1v.1.1"><span data-reactid=".0.1.2.1:1v.1.1.0">$</span><span data-reactid=".0.1.2.1:1v.1.1.1">166.00</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1v.1.2"><span data-reactid=".0.1.2.1:1v.1.2.0">$</span><span data-reactid=".0.1.2.1:1v.1.2.1">18.26</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1v.1.3"><span data-reactid=".0.1.2.1:1v.1.3.0">$</span><span data-reactid=".0.1.2.1:1v.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1w">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1w.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1w.1.0">68</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1w.1.1"><span data-reactid=".0.1.2.1:1w.1.1.0">$</span><span data-reactid=".0.1.2.1:1w.1.1.1">168.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1w.1.2"><span data-reactid=".0.1.2.1:1w.1.2.0">$</span><span data-reactid=".0.1.2.1:1w.1.2.1">18.54</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1w.1.3"><span data-reactid=".0.1.2.1:1w.1.3.0">$</span><span data-reactid=".0.1.2.1:1w.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1x">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:1x.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:1x.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1x.1.0">69</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1x.1.1"><span data-reactid=".0.1.2.1:1x.1.1.0">$</span><span data-reactid=".0.1.2.1:1x.1.1.1">170.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1x.1.2"><span data-reactid=".0.1.2.1:1x.1.2.0">$</span><span data-reactid=".0.1.2.1:1x.1.2.1">18.80</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1x.1.3"><span data-reactid=".0.1.2.1:1x.1.3.0">$</span><span data-reactid=".0.1.2.1:1x.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1y">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1y.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1y.1.0">70</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1y.1.1"><span data-reactid=".0.1.2.1:1y.1.1.0">$</span><span data-reactid=".0.1.2.1:1y.1.1.1">173.45</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1y.1.2"><span data-reactid=".0.1.2.1:1y.1.2.0">$</span><span data-reactid=".0.1.2.1:1y.1.2.1">19.08</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1y.1.3"><span data-reactid=".0.1.2.1:1y.1.3.0">$</span><span data-reactid=".0.1.2.1:1y.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:1z">
+                    <div class="fare-item" data-reactid=".0.1.2.1:1z.1">
+                        <div class="ride" data-reactid=".0.1.2.1:1z.1.0">71</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:1z.1.1"><span data-reactid=".0.1.2.1:1z.1.1.0">$</span><span data-reactid=".0.1.2.1:1z.1.1.1">175.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:1z.1.2"><span data-reactid=".0.1.2.1:1z.1.2.0">$</span><span data-reactid=".0.1.2.1:1z.1.2.1">19.35</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:1z.1.3"><span data-reactid=".0.1.2.1:1z.1.3.0">$</span><span data-reactid=".0.1.2.1:1z.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:20">
+                    <div class="fare-item" data-reactid=".0.1.2.1:20.1">
+                        <div class="ride" data-reactid=".0.1.2.1:20.1.0">72</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:20.1.1"><span data-reactid=".0.1.2.1:20.1.1.0">$</span><span data-reactid=".0.1.2.1:20.1.1.1">178.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:20.1.2"><span data-reactid=".0.1.2.1:20.1.2.0">$</span><span data-reactid=".0.1.2.1:20.1.2.1">19.62</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:20.1.3"><span data-reactid=".0.1.2.1:20.1.3.0">$</span><span data-reactid=".0.1.2.1:20.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:21">
+                    <div class="fare-item" data-reactid=".0.1.2.1:21.1">
+                        <div class="ride" data-reactid=".0.1.2.1:21.1.0">73</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:21.1.1"><span data-reactid=".0.1.2.1:21.1.1.0">$</span><span data-reactid=".0.1.2.1:21.1.1.1">180.90</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:21.1.2"><span data-reactid=".0.1.2.1:21.1.2.0">$</span><span data-reactid=".0.1.2.1:21.1.2.1">19.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:21.1.3"><span data-reactid=".0.1.2.1:21.1.3.0">$</span><span data-reactid=".0.1.2.1:21.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:22">
+                    <div class="fare-item" data-reactid=".0.1.2.1:22.1">
+                        <div class="ride" data-reactid=".0.1.2.1:22.1.0">74</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:22.1.1"><span data-reactid=".0.1.2.1:22.1.1.0">$</span><span data-reactid=".0.1.2.1:22.1.1.1">183.35</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:22.1.2"><span data-reactid=".0.1.2.1:22.1.2.0">$</span><span data-reactid=".0.1.2.1:22.1.2.1">20.17</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:22.1.3"><span data-reactid=".0.1.2.1:22.1.3.0">$</span><span data-reactid=".0.1.2.1:22.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:23">
+                    <div class="fare-item" data-reactid=".0.1.2.1:23.1">
+                        <div class="ride" data-reactid=".0.1.2.1:23.1.0">75</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:23.1.1"><span data-reactid=".0.1.2.1:23.1.1.0">$</span><span data-reactid=".0.1.2.1:23.1.1.1">185.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:23.1.2"><span data-reactid=".0.1.2.1:23.1.2.0">$</span><span data-reactid=".0.1.2.1:23.1.2.1">20.44</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:23.1.3"><span data-reactid=".0.1.2.1:23.1.3.0">$</span><span data-reactid=".0.1.2.1:23.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:24">
+                    <div class="fare-item" data-reactid=".0.1.2.1:24.1">
+                        <div class="ride" data-reactid=".0.1.2.1:24.1.0">76</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:24.1.1"><span data-reactid=".0.1.2.1:24.1.1.0">$</span><span data-reactid=".0.1.2.1:24.1.1.1">188.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:24.1.2"><span data-reactid=".0.1.2.1:24.1.2.0">$</span><span data-reactid=".0.1.2.1:24.1.2.1">20.71</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:24.1.3"><span data-reactid=".0.1.2.1:24.1.3.0">$</span><span data-reactid=".0.1.2.1:24.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:25">
+                    <div class="fare-item" data-reactid=".0.1.2.1:25.1">
+                        <div class="ride" data-reactid=".0.1.2.1:25.1.0">77</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:25.1.1"><span data-reactid=".0.1.2.1:25.1.1.0">$</span><span data-reactid=".0.1.2.1:25.1.1.1">190.80</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:25.1.2"><span data-reactid=".0.1.2.1:25.1.2.0">$</span><span data-reactid=".0.1.2.1:25.1.2.1">20.99</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:25.1.3"><span data-reactid=".0.1.2.1:25.1.3.0">$</span><span data-reactid=".0.1.2.1:25.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:26">
+                    <div class="fare-item" data-reactid=".0.1.2.1:26.1">
+                        <div class="ride" data-reactid=".0.1.2.1:26.1.0">78</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:26.1.1"><span data-reactid=".0.1.2.1:26.1.1.0">$</span><span data-reactid=".0.1.2.1:26.1.1.1">193.25</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:26.1.2"><span data-reactid=".0.1.2.1:26.1.2.0">$</span><span data-reactid=".0.1.2.1:26.1.2.1">21.26</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:26.1.3"><span data-reactid=".0.1.2.1:26.1.3.0">$</span><span data-reactid=".0.1.2.1:26.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:27">
+                    <div class="fare-item" data-reactid=".0.1.2.1:27.1">
+                        <div class="ride" data-reactid=".0.1.2.1:27.1.0">79</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:27.1.1"><span data-reactid=".0.1.2.1:27.1.1.0">$</span><span data-reactid=".0.1.2.1:27.1.1.1">195.75</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:27.1.2"><span data-reactid=".0.1.2.1:27.1.2.0">$</span><span data-reactid=".0.1.2.1:27.1.2.1">21.53</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:27.1.3"><span data-reactid=".0.1.2.1:27.1.3.0">$</span><span data-reactid=".0.1.2.1:27.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:28">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:28.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:28.1">
+                        <div class="ride" data-reactid=".0.1.2.1:28.1.0">80</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:28.1.1"><span data-reactid=".0.1.2.1:28.1.1.0">$</span><span data-reactid=".0.1.2.1:28.1.1.1">198.20</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:28.1.2"><span data-reactid=".0.1.2.1:28.1.2.0">$</span><span data-reactid=".0.1.2.1:28.1.2.1">21.80</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:28.1.3"><span data-reactid=".0.1.2.1:28.1.3.0">$</span><span data-reactid=".0.1.2.1:28.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:29">
+                    <div class="fare-item" data-reactid=".0.1.2.1:29.1">
+                        <div class="ride" data-reactid=".0.1.2.1:29.1.0">81</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:29.1.1"><span data-reactid=".0.1.2.1:29.1.1.0">$</span><span data-reactid=".0.1.2.1:29.1.1.1">200.70</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:29.1.2"><span data-reactid=".0.1.2.1:29.1.2.0">$</span><span data-reactid=".0.1.2.1:29.1.2.1">22.08</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:29.1.3"><span data-reactid=".0.1.2.1:29.1.3.0">$</span><span data-reactid=".0.1.2.1:29.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2a">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2a.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2a.1.0">82</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2a.1.1"><span data-reactid=".0.1.2.1:2a.1.1.0">$</span><span data-reactid=".0.1.2.1:2a.1.1.1">203.20</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2a.1.2"><span data-reactid=".0.1.2.1:2a.1.2.0">$</span><span data-reactid=".0.1.2.1:2a.1.2.1">22.35</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2a.1.3"><span data-reactid=".0.1.2.1:2a.1.3.0">$</span><span data-reactid=".0.1.2.1:2a.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2b">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2b.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2b.1.0">83</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2b.1.1"><span data-reactid=".0.1.2.1:2b.1.1.0">$</span><span data-reactid=".0.1.2.1:2b.1.1.1">205.65</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2b.1.2"><span data-reactid=".0.1.2.1:2b.1.2.0">$</span><span data-reactid=".0.1.2.1:2b.1.2.1">22.62</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2b.1.3"><span data-reactid=".0.1.2.1:2b.1.3.0">$</span><span data-reactid=".0.1.2.1:2b.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2c">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2c.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2c.1.0">84</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2c.1.1"><span data-reactid=".0.1.2.1:2c.1.1.0">$</span><span data-reactid=".0.1.2.1:2c.1.1.1">208.15</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2c.1.2"><span data-reactid=".0.1.2.1:2c.1.2.0">$</span><span data-reactid=".0.1.2.1:2c.1.2.1">22.90</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2c.1.3"><span data-reactid=".0.1.2.1:2c.1.3.0">$</span><span data-reactid=".0.1.2.1:2c.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2d">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2d.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2d.1.0">85</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2d.1.1"><span data-reactid=".0.1.2.1:2d.1.1.0">$</span><span data-reactid=".0.1.2.1:2d.1.1.1">210.60</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2d.1.2"><span data-reactid=".0.1.2.1:2d.1.2.0">$</span><span data-reactid=".0.1.2.1:2d.1.2.1">23.17</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2d.1.3"><span data-reactid=".0.1.2.1:2d.1.3.0">$</span><span data-reactid=".0.1.2.1:2d.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2e">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2e.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2e.1.0">86</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2e.1.1"><span data-reactid=".0.1.2.1:2e.1.1.0">$</span><span data-reactid=".0.1.2.1:2e.1.1.1">213.10</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2e.1.2"><span data-reactid=".0.1.2.1:2e.1.2.0">$</span><span data-reactid=".0.1.2.1:2e.1.2.1">23.44</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2e.1.3"><span data-reactid=".0.1.2.1:2e.1.3.0">$</span><span data-reactid=".0.1.2.1:2e.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2f">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2f.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2f.1.0">87</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2f.1.1"><span data-reactid=".0.1.2.1:2f.1.1.0">$</span><span data-reactid=".0.1.2.1:2f.1.1.1">215.55</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2f.1.2"><span data-reactid=".0.1.2.1:2f.1.2.0">$</span><span data-reactid=".0.1.2.1:2f.1.2.1">23.71</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2f.1.3"><span data-reactid=".0.1.2.1:2f.1.3.0">$</span><span data-reactid=".0.1.2.1:2f.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2g">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2g.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2g.1.0">88</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2g.1.1"><span data-reactid=".0.1.2.1:2g.1.1.0">$</span><span data-reactid=".0.1.2.1:2g.1.1.1">218.05</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2g.1.2"><span data-reactid=".0.1.2.1:2g.1.2.0">$</span><span data-reactid=".0.1.2.1:2g.1.2.1">23.99</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2g.1.3"><span data-reactid=".0.1.2.1:2g.1.3.0">$</span><span data-reactid=".0.1.2.1:2g.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2h">
+                    <div class="fare-item-label" data-reactid=".0.1.2.1:2h.0">No remainder</div>
+                    <div class="fare-item best" data-reactid=".0.1.2.1:2h.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2h.1.0">89</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2h.1.1"><span data-reactid=".0.1.2.1:2h.1.1.0">$</span><span data-reactid=".0.1.2.1:2h.1.1.1">220.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2h.1.2"><span data-reactid=".0.1.2.1:2h.1.2.0">$</span><span data-reactid=".0.1.2.1:2h.1.2.1">24.25</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2h.1.3"><span data-reactid=".0.1.2.1:2h.1.3.0">$</span><span data-reactid=".0.1.2.1:2h.1.3.1">0.00</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2i">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2i.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2i.1.0">90</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2i.1.1"><span data-reactid=".0.1.2.1:2i.1.1.0">$</span><span data-reactid=".0.1.2.1:2i.1.1.1">223.00</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2i.1.2"><span data-reactid=".0.1.2.1:2i.1.2.0">$</span><span data-reactid=".0.1.2.1:2i.1.2.1">24.53</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2i.1.3"><span data-reactid=".0.1.2.1:2i.1.3.0">$</span><span data-reactid=".0.1.2.1:2i.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2j">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2j.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2j.1.0">91</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2j.1.1"><span data-reactid=".0.1.2.1:2j.1.1.0">$</span><span data-reactid=".0.1.2.1:2j.1.1.1">225.50</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2j.1.2"><span data-reactid=".0.1.2.1:2j.1.2.0">$</span><span data-reactid=".0.1.2.1:2j.1.2.1">24.80</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2j.1.3"><span data-reactid=".0.1.2.1:2j.1.3.0">$</span><span data-reactid=".0.1.2.1:2j.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2k">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2k.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2k.1.0">92</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2k.1.1"><span data-reactid=".0.1.2.1:2k.1.1.0">$</span><span data-reactid=".0.1.2.1:2k.1.1.1">227.95</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2k.1.2"><span data-reactid=".0.1.2.1:2k.1.2.0">$</span><span data-reactid=".0.1.2.1:2k.1.2.1">25.07</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2k.1.3"><span data-reactid=".0.1.2.1:2k.1.3.0">$</span><span data-reactid=".0.1.2.1:2k.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2l">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2l.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2l.1.0">93</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2l.1.1"><span data-reactid=".0.1.2.1:2l.1.1.0">$</span><span data-reactid=".0.1.2.1:2l.1.1.1">230.45</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2l.1.2"><span data-reactid=".0.1.2.1:2l.1.2.0">$</span><span data-reactid=".0.1.2.1:2l.1.2.1">25.35</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2l.1.3"><span data-reactid=".0.1.2.1:2l.1.3.0">$</span><span data-reactid=".0.1.2.1:2l.1.3.1">0.05</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2m">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2m.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2m.1.0">94</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2m.1.1"><span data-reactid=".0.1.2.1:2m.1.1.0">$</span><span data-reactid=".0.1.2.1:2m.1.1.1">232.90</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2m.1.2"><span data-reactid=".0.1.2.1:2m.1.2.0">$</span><span data-reactid=".0.1.2.1:2m.1.2.1">25.62</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2m.1.3"><span data-reactid=".0.1.2.1:2m.1.3.0">$</span><span data-reactid=".0.1.2.1:2m.1.3.1">0.02</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2n">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2n.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2n.1.0">95</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2n.1.1"><span data-reactid=".0.1.2.1:2n.1.1.0">$</span><span data-reactid=".0.1.2.1:2n.1.1.1">235.40</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2n.1.2"><span data-reactid=".0.1.2.1:2n.1.2.0">$</span><span data-reactid=".0.1.2.1:2n.1.2.1">25.89</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2n.1.3"><span data-reactid=".0.1.2.1:2n.1.3.0">$</span><span data-reactid=".0.1.2.1:2n.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2o">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2o.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2o.1.0">96</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2o.1.1"><span data-reactid=".0.1.2.1:2o.1.1.0">$</span><span data-reactid=".0.1.2.1:2o.1.1.1">237.85</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2o.1.2"><span data-reactid=".0.1.2.1:2o.1.2.0">$</span><span data-reactid=".0.1.2.1:2o.1.2.1">26.16</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2o.1.3"><span data-reactid=".0.1.2.1:2o.1.3.0">$</span><span data-reactid=".0.1.2.1:2o.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2p">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2p.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2p.1.0">97</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2p.1.1"><span data-reactid=".0.1.2.1:2p.1.1.0">$</span><span data-reactid=".0.1.2.1:2p.1.1.1">240.35</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2p.1.2"><span data-reactid=".0.1.2.1:2p.1.2.0">$</span><span data-reactid=".0.1.2.1:2p.1.2.1">26.44</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2p.1.3"><span data-reactid=".0.1.2.1:2p.1.3.0">$</span><span data-reactid=".0.1.2.1:2p.1.3.1">0.04</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2q">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2q.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2q.1.0">98</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2q.1.1"><span data-reactid=".0.1.2.1:2q.1.1.0">$</span><span data-reactid=".0.1.2.1:2q.1.1.1">242.80</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2q.1.2"><span data-reactid=".0.1.2.1:2q.1.2.0">$</span><span data-reactid=".0.1.2.1:2q.1.2.1">26.71</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2q.1.3"><span data-reactid=".0.1.2.1:2q.1.3.0">$</span><span data-reactid=".0.1.2.1:2q.1.3.1">0.01</span></div>
+                    </div>
+                </div>
+                <div data-reactid=".0.1.2.1:2r">
+                    <div class="fare-item" data-reactid=".0.1.2.1:2r.1">
+                        <div class="ride" data-reactid=".0.1.2.1:2r.1.0">99</div>
+                        <div class="you-pay" data-reactid=".0.1.2.1:2r.1.1"><span data-reactid=".0.1.2.1:2r.1.1.0">$</span><span data-reactid=".0.1.2.1:2r.1.1.1">245.30</span></div>
+                        <div class="bonus" data-reactid=".0.1.2.1:2r.1.2"><span data-reactid=".0.1.2.1:2r.1.2.0">$</span><span data-reactid=".0.1.2.1:2r.1.2.1">26.98</span></div>
+                        <div class="remainder" data-reactid=".0.1.2.1:2r.1.3"><span data-reactid=".0.1.2.1:2r.1.3.0">$</span><span data-reactid=".0.1.2.1:2r.1.3.1">0.03</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         <script src="scripts/app.js"></script>
-    </body>
+</body>
+
 </html>
