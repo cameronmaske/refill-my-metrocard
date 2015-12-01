@@ -7,7 +7,6 @@ export default class Options extends React.Component {
             balance: props.balance,
             fare: props.fare
         }
-        console.log(props);
     }
 
     balanceChange(event) {
@@ -29,25 +28,26 @@ export default class Options extends React.Component {
     render() {
         return (
             <div className="row">
-                <form className="col s12">
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input onChange={this.balanceChange.bind(this)} value={this.state.balance} type="number" className="validate" step="0.05" min="0.0"/>
-                            <label>Current Balance</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="input-field col s12">
+                <div className="options">
+                    <form>
+                        <fieldset className="form-group">
                             <label>Fare</label>
-                            <select className="browser-default" onChange={this.fareChange.bind(this)} value={this.state.fare}>
-                                <option value="1.35">$1.35</option>
-                                <option value="2.75">$2.75</option>
-                                <option value="3.25">$3.25</option>
-                                <option value="6.50">$6.50</option>
+                            <select className="form-control" onChange={this.fareChange.bind(this)} value={this.state.fare}>
+                                <option value="1.35">$1.35 (Senior Fare)</option>
+                                <option value="2.75">$2.75 (Regular Fare)</option>
+                                <option value="3.25">$3.25 (Senior Express Bus)</option>
+                                <option value="6.50">$6.50 (Regular Express Bus)</option>
                             </select>
-                        </div>
-                    </div>
-                </form>
+                        </fieldset>
+                        <fieldset className="form-group">
+                            <label>Current Balance</label>
+                            <div className="prefix-form-control">
+                                <span className="prefix">$</span>
+                                <input className="form-control" onChange={this.balanceChange.bind(this)} value={this.state.balance} type="number" pattern="[\d\.]*" inputmode="numeric" step="0.05" min="0.0"/>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         )
     }

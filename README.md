@@ -1,31 +1,40 @@
-# react-babel-seed
-A really simple application displaying "Hello World". 
-It uses a [Babel](http://babeljs.io/), [Gulp](http://gulpjs.com/) and [React](https://facebook.github.io/react/).
+# Metro Card 🚇
 
-The settings are defined in the **gulpfile.js**.
+A simple React app that tells you how much to top up your MetroCard.
 
-## Dev dependencies
-- gulp
-- gulp-util
-- gulp-compass
-- gulp-webserver
-- babelify
-- watchify
-- browserify
-- vinyl-source-stream
+## Development
 
-Once the project is cloned, open a terminal and just write : 
+Install the required packages..
 
-```bash
-npm install
+```
+npm install -g gulp
+npm install .
 ```
 
-You should probably check if the versions are correct first, they might be outdated.
+Watch files and serve on localhost:8000
 
-## Dependencies
-- React
+```
+gulp watch
+```
 
-## Run project
-When all the dependencies are installed, just do ```gulp watch``` to run the project.
+## Deployment
 
-Enjoy and feeback are appreciated ; )
+To deploy to S3.
+
+Create a `aws.json` with the following details
+
+```
+{
+  "key": "A...",
+  "secret": "q...",
+  "bucket": "metrocardcalculator",
+  "region": "us-east-1"
+}
+```
+
+Then run
+
+```
+gulp bundle --env production
+gulp deploy
+```
