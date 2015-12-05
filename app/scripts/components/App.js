@@ -53,7 +53,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <nav className="navbar">
-                <span className="navbar-brand">Metrocard Calculator</span>
+                <span className="navbar-brand">Refill My MetoCard</span>
             </nav>
         )
     }

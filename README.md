@@ -1,4 +1,4 @@
-# Metro Card 🚇
+# Refill My MetroCard 🚇
 
 A simple React app that tells you how much to top up your MetroCard.
 
@@ -27,7 +27,7 @@ Create a `aws.json` with the following details
 {
   "key": "A...",
   "secret": "q...",
-  "bucket": "metrocardcalculator",
+  "bucket": "www.refillmymetrocard.com",
   "region": "us-east-1"
 }
 ```
