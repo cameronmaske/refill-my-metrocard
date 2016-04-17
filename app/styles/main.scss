@@ -99,3 +99,14 @@ body {
   @include make-col-span(12);
   padding-top: 10px;
 }
+
+.footer {
+  @include make-container();
+  @include make-col(20px);
+  @include make-col-span(12);
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  padding-top: 10px;
+  text-align: center;
+  background-color: #f5f5f5;
+}

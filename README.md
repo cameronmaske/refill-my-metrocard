@@ -38,3 +38,11 @@ Then run
 gulp bundle --env production
 gulp deploy
 ```
+
+## Contributing
+
+Contributions are welcome, and they are greatly appreciated! Every
+little bit helps, and credit will always be given.
+
+If you would like to propose a change, notice a bug, open an issue for discussion.
+
