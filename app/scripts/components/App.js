@@ -88,6 +88,11 @@ class App extends React.Component {
                     <Options onChange={this.optionsChange.bind(this)} fare={this.state.fare} balance={this.state.balance}></Options>
                     <FareTable fares={fares}></FareTable>
                 </div>
+                <div className="footer">
+                    An open-source effort by <a href="http://www.cameronmaske.com">@cameronmaske</a>.
+                    <br></br>
+                    <a href="https://github.com/cameronmaske/metro-card-recharge">Contributions welcome</a>.
+                </div>
             </div>
         )
     }
